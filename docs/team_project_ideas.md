@@ -10,9 +10,9 @@ sentences.
 Each team member should Place an 'X' under their name to vote for the ideas 
 you like the best.
 
-| Project Idea | Description | teammate name | teammate name | teammate name | teammate name | teammate name | teammate name |
+| Project Idea | Description | Trevor | teammate name | teammate name | teammate name | teammate name | teammate name |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| First idea | Description | | | | | | |
+| Study Platform |  Flashcard and study tool platform where users create, share, and study card sets with various learning modes. | | | | | | |
 | Second idea | Description | | | | | | |
 | ... | Description | | | | | | |
 | Last idea | Description | | | | | | |
