@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
     const [activeButton, setActiveButton] = useState<string>("home");
@@ -13,7 +14,8 @@ export default function Navbar() {
             </div>
             
             <h1 className="text-xl sm:text-2xl font-bold m-4">PR Status Board</h1>
-
+        
+        <Link href="/" passHref>
             <button
                 className={`flex justify-center items-center rounded-md font-bold duration-300 
                 ease-in-out hover:-translate-y-1 bg-[#161B22] cursor-pointer m-4 h-[40px] w-[98px] ${
@@ -23,7 +25,9 @@ export default function Navbar() {
             >
                 🏠 Home
             </button>
+        </Link>        
 
+        <Link href="/openRequests" passHref>
             <button
                 className={`flex justify-center items-center rounded-md font-bold duration-300 
                 ease-in-out hover:-translate-y-1 bg-[#161B22] cursor-pointer m-4 h-[40px] w-[127px] ${
@@ -33,7 +37,9 @@ export default function Navbar() {
             >
                 🔓 Open PRs
             </button>
+        </Link>
 
+        <Link href="/closedRequests" passHref>
             <button
                 className={`flex justify-center items-center rounded-md font-bold duration-300 
                 ease-in-out hover:-translate-y-1 bg-[#161B22] cursor-pointer m-4 h-[40px] w-[139px] ${
@@ -43,9 +49,9 @@ export default function Navbar() {
             >
                 ✅ Closed PRs
             </button>
-
+        </Link>
             
-                <button className="ml-auto items-center justify-end font-bold bg-blue-500 hover:bg-blue-600 text-white 
+                <button className="ml-auto mr-10 cursor-pointer items-center justify-end font-bold bg-blue-500 hover:bg-blue-600 text-white 
                 py-2 px-4 rounded-lg transition-colors text-sm">
                     Sign In
                 </button>
