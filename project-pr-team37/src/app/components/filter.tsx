@@ -34,7 +34,7 @@ export default function filter() {
                         </button>
 
                         {isRepoDropdownOpen && (
-                        <div id="repoDropdown" className={`absolute left-0 mt-2 w-full lg:w-64 bg-[#0d1117] border border-[#30363D] rounded-lg shadow-lg z-50 ${isRepoDropdownOpen ? '' : 'hidden'}`}>
+                        <div id="repoDropdown" className={`absolute left-0 mt-2 w-full ml-10 overflow-y-auto thin-scrollbar lg:w-64 bg-[#0d1117] border border-[#30363D] max-w-[200px] max-h-[254px] rounded-lg shadow-lg z-50 ${isRepoDropdownOpen ? '' : 'hidden'}`}>
                           <div className="p-3">
                             <input type="text" id="repoSearch" placeholder="Search repositories..." className="w-full bg-slate-950 border border-[#30363D] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"/>
                           </div>
@@ -77,7 +77,7 @@ export default function filter() {
                         </button>
 
                         { isCachingDropdownOpen && (
-                        <div id="cachingDropdown" className={`absolute right-0 mt-2 w-72 bg-[#0d1117] border border-[#30363D]  rounded-lg shadow-lg z-50 ${isCachingDropdownOpen ? '' : 'hidden'}`}>
+                        <div id="cachingDropdown" className={`absolute right-0 mt-2 max-h-[288px] max-w-[190px] mr-10 w-72 bg-[#0d1117] border border-[#30363D]  rounded-lg shadow-lg z-50 ${isCachingDropdownOpen ? '' : 'hidden'}`}>
                             <div className="p-4 border-b border-[#30363D] ">
                                 <div className="text-sm font-medium text-white" id="cacheTitle">Cache (No repository selected)</div>
                                 <div className="text-xs text-gray-400 mt-1" id="cacheSubtitle">No cache available</div>
