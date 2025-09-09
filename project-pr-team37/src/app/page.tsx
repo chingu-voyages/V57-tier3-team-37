@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import SelectFunction from './components/SelectFunction.jsx'
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
 
   return (
     <div>
+        <SelectFunction />
         <div className="relative justify-center m-auto overflow-hidden rounded-2xl mt-8 bg-gradient-to-br from-[#147E7E] via-[#2D5D9F] to-[#7A2E2E] h-[482px] w-[1216px]">
                 <div className="absolute inset-0 bg-opacity-20"></div>
                 <div className="relative text-center py-16 px-8">

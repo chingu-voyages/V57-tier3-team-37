@@ -40,29 +40,71 @@ const TeamInfo = () => {
     const teamData = await getTeam()
     const teamInfo = (
         <div className="border">
-          <p className="code-text justify-left">{syntaxHighlight(teamData)}</p> 
+          {/* <p className="code-text justify-left">{syntaxHighlight(teamData)}</p>  */}
+          <pre className="bg-gray-900 text-green-400 p-4 rounded overflow-x-auto text-sm">
+            {JSON.stringify(teamData, null, 2)}
+          </pre>
         </div>
     )
     setTeam(teamInfo)
 
     // Retrieve repo information
+    // const repoData = await getTeamRepo()
+    // const repoInfo = (
+    //     <div className="border">
+    //       <p className="code-text justify-left">{syntaxHighlight(repoData)}</p> 
+    //     </div>
+    // )
+    // setRepo(repoInfo)
     const repoData = await getTeamRepo()
     const repoInfo = (
-        <div className="border">
-          <p className="code-text justify-left">{syntaxHighlight(repoData)}</p> 
-        </div>
+      <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm">
+        <div
+          className="code-text justify-left"
+          dangerouslySetInnerHTML={{ __html: syntaxHighlight(repoData.data) }}
+        />
+      </pre>
     )
     setRepo(repoInfo)
 
+
+    // Retrieve branch information
+    // const branchData = await getRepoBranches()
+    // let itemNo = 0
+    // const branchItems = branchData.data.map((entry) => {
+    //   itemNo++
+    //   return (
+    //     <div className="border" key={itemNo}>
+    //       <p className="code-text justify-left">{syntaxHighlight(entry)}</p> 
+    //     </div>
+    //   )
+    // })
+    // setBranches(branchItems)
+
+    // // Retrieve PR information
+    // const prData = await getPullRequests()
+    // itemNo = 0
+    // const prItems = prData.data.map((entry) => {
+    //   itemNo++
+    //   return (
+    //     <div className="border" key={itemNo}>
+    //       <p className="code-text justify-left">{syntaxHighlight(entry)}</p> 
+    //     </div>
+    //   )
+    // })
+    // setPRs(prItems)
     // Retrieve branch information
     const branchData = await getRepoBranches()
     let itemNo = 0
     const branchItems = branchData.data.map((entry) => {
       itemNo++
       return (
-        <div className="border" key={itemNo}>
-          <p className="code-text justify-left">{syntaxHighlight(entry)}</p> 
-        </div>
+        <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm border" key={itemNo}>
+          <div
+            className="code-text justify-left"
+            dangerouslySetInnerHTML={{ __html: syntaxHighlight(entry) }}
+          />
+        </pre>
       )
     })
     setBranches(branchItems)
@@ -73,14 +115,21 @@ const TeamInfo = () => {
     const prItems = prData.data.map((entry) => {
       itemNo++
       return (
-        <div className="border" key={itemNo}>
-          <p className="code-text justify-left">{syntaxHighlight(entry)}</p> 
-        </div>
+        <pre className="bg-gray-900 p-4 rounded overflow-x-auto text-sm border" key={itemNo}>
+          <div
+            className="code-text justify-left"
+            dangerouslySetInnerHTML={{ __html: syntaxHighlight(entry) }}
+          />
+        </pre>
       )
     })
     setPRs(prItems)
   }
 
+
+
+
+  
   const getRepoBranches = async () => {
     const octokit = new Octokit({
       auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN
