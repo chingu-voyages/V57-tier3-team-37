@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import SelectFunction from './components/SelectFunction.jsx'
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -36,14 +37,19 @@ export default function Home() {
                     </div>          
                   
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                      <Link href="/openRequests" passHref>
                         <button onClick={() => setActiveButton("open-prs")} className="bg-white cursor-pointer text-blue-900 font-semibold py-4 px-8 
                         rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             🔓 View Open PRs
                         </button>
+                      </Link>
+
+                      <Link href="/closedRequests" passHref>
                         <button onClick={() => setActiveButton("closed-prs")} className="bg-transparent cursor-pointer border-2 border-white text-white font-semibold py-4 
                         px-8 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300">
                             ✅ View Closed PRs
                         </button>
+                      </Link>
                     </div>
                     
                     
