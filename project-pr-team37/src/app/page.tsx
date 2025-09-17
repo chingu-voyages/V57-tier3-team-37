@@ -51,7 +51,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link href="/openRequests" passHref>
               <button
@@ -74,7 +73,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Sign-up */}
           <div className="text-center">
             <p className="text-blue-100 text-sm">
               New to PR Status Board?{" "}
@@ -86,9 +84,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Info Cards Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1216px] mx-auto mt-16 sm:mt-8">
-        {/* Reviewers Card */}
+
         <div className="bg-gradient-to-br from-green-900 to-green-800 rounded-2xl p-8 border border-green-700 
           w-full sm:max-w-[605px] h-auto mx-auto">
           <div className="flex items-center space-x-3 mb-6">
@@ -119,7 +116,6 @@ export default function Home() {
           </ul>
         </div>
 
-        {/* Authors Card */}
         <div className="bg-gradient-to-br from-blue-900 to-purple-800 rounded-2xl p-8 border border-blue-700 
           w-full sm:max-w-[605px] h-auto mx-auto">
           <div className="flex items-center space-x-3 mb-6">

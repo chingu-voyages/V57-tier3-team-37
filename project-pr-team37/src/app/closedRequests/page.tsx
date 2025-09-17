@@ -1,4 +1,5 @@
 import React from 'react'
+import Filter from '../components/filter'
 
 export default function ClosedRequests() {
   return (
