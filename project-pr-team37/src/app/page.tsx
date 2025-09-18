@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+import SelectFunction from './components/SelectFunction.jsx'
+import Link from 'next/link';
 
 export default function Home() {
   const [activeButton, setActiveButton] = useState<string>("home");
@@ -13,76 +14,53 @@ export default function Home() {
 
   return (
     <div>
-      <div className="relative justify-center m-auto overflow-hidden rounded-2xl mt-8 
-        bg-gradient-to-br from-[#147E7E] via-[#2D5D9F] to-[#7A2E2E] 
-        w-full max-w-[605px] sm:max-w-[1216px] h-auto sm:h-[503px] ">
-        <div className="absolute inset-0 bg-opacity-20"></div>
+        <SelectFunction />
+        <div className="relative justify-center m-auto overflow-hidden rounded-2xl mt-8 bg-gradient-to-br from-[#147E7E] via-[#2D5D9F] to-[#7A2E2E] h-[482px] w-[1216px]">
+                <div className="absolute inset-0 bg-opacity-20"></div>
+                <div className="relative text-center py-16 px-8">
+                    <h2 className="text-5xl font-bold mb-6 text-white">Track Your Pull Requests</h2>
+                    <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Modern dashboard to monitor GitHub PRs with real-time status updates and intelligent caching</p>
+                
+                    
+                    <div className="max-w-md mx-auto mb-8">
+                        <div className="relative">
+                            <button onClick={() => toggleDropdown()} className="w-full font-bold text-lg bg-white/10 cursor-pointer backdrop-blur-sm border border-white border-opacity-20 rounded-xl px-6 py-4 
+                            text-left flex items-center justify-between hover:bg-white/20 transition-all duration-300">
+                                <span id="heroSelectedRepo" className="text-blue-100">Select a repository to get started</span>
+                                <svg className="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>          
+                  
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                      <Link href="/openRequests" passHref>
+                        <button onClick={() => setActiveButton("open-prs")} className="bg-white cursor-pointer text-blue-900 font-semibold py-4 px-8 
+                        rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            🔓 View Open PRs
+                        </button>
+                      </Link>
 
-        <div className="relative text-center py-16 px-8">
-          <h2 className="text-3xl sm:text-5xl font-bold mb-6 text-white">
-            Track Your Pull Requests
-          </h2>
-          <p className="text-base sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Modern dashboard to monitor GitHub PRs with real-time status updates
-            and intelligent caching
-          </p>
-
-          <div className="max-w-md mx-auto mb-8">
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown()}
-                className="w-full font-bold text-lg bg-white/10 cursor-pointer backdrop-blur-sm border border-white border-opacity-20 rounded-xl px-6 py-4 
-                  text-left flex items-center justify-between hover:bg-white/20 transition-all duration-300"
-              >
-                <span
-                  id="heroSelectedRepo"
-                  className="text-blue-100 truncate"
-                >
-                  Select a repository to get started
-                </span>
-                <svg
-                  className="w-5 h-5 text-blue-200"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path>
-                </svg>
-              </button>
+                      <Link href="/closedRequests" passHref>
+                        <button onClick={() => setActiveButton("closed-prs")} className="bg-transparent cursor-pointer border-2 border-white text-white font-semibold py-4 
+                        px-8 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300">
+                            ✅ View Closed PRs
+                        </button>
+                      </Link>
+                    </div>
+                    
+                    
+                    <div className="text-center">
+                        <p className="text-blue-100 text-sm">
+                            New to PR Status Board? 
+                            <button className="text-white underline hover:text-blue-200 transition-colors font-medium m-1 cursor-pointer">
+                                Create an account
+                            </button>
+                        </p>
+                    </div>
+                </div>                
             </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Link href="/openRequests" passHref>
-              <button
-                onClick={() => setActiveButton("open-prs")}
-                className="bg-white cursor-pointer text-blue-900 font-semibold py-4 px-8 
-                  rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                🔓 View Open PRs
-              </button>
-            </Link>
-
-            <Link href="/closedRequests" passHref>
-              <button
-                onClick={() => setActiveButton("closed-prs")}
-                className="bg-transparent cursor-pointer border-2 border-white text-white font-semibold py-4 
-                  px-8 rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300"
-              >
-                ✅ View Closed PRs
-              </button>
-            </Link>
-          </div>
-
-          <div className="text-center">
-            <p className="text-blue-100 text-sm">
-              New to PR Status Board?{" "}
-              <button className="text-white underline hover:text-blue-200 transition-colors font-medium m-1 cursor-pointer">
-                Create an account
-              </button>
-            </p>
-          </div>
-        </div>
-      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1216px] mx-auto mt-16 sm:mt-8">
 
